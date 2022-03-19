@@ -9,7 +9,7 @@ import store from './Redux/store';
 
 export default function App() {
   return (
-    <Provider>
+    <Provider store={store}>
     <NavigationContainer theme={DarkTheme}>
       <StatusBar hidden={true} />
       <RootNavigator />
