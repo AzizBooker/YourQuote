@@ -27,16 +27,38 @@ const initialState = {
           quote: "Philosophy Quote #2",
           author: "Random Philosopher #2",
         },
+        {
+          uuid:'1113',
+          quote:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus hendrerit posuere dolor, ut posuere magna rhoncus eget"
+          ,
+          author: "Random Philosopher #2",
+        },
+        {
+          uuid:'1114',
+          quote:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus hendrerit posuere dolor, ut posuere magna rhoncus eget"
+          ,
+          author: "Random Philosopher #3",
+        },
+        {
+          uuid:'1115',
+          quote:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus hendrerit posuere dolor, ut posuere magna rhoncus eget"
+          ,
+          author: "Random Philosopher #4",
+        },
       ],
     },
   ],
 };
 
+
+
 export const rootSlice = createSlice({
   name: "root",
   initialState,
   reducers: {
-    AddQuote: (state, { payload }) => {},
+    AddQuote: (state, { payload }) => {
+      //When adding Quote trim string of whitespace
+    },
     EditQuote: (state, { payload }) => {},
     DeleteQuote: (state, { payload }) => {},
     AddCollection: (state, { payload }) => {},

@@ -9,6 +9,7 @@ import React from "react";
 import { useTheme } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import BottomSheetComponent from "../../components/BottomSheet";
+import AppTitle from "../../components/AppTitle";
 const HomeScreen = () => {
   const collections = useSelector((state) => state.root.collections);
 
@@ -30,7 +31,7 @@ const HomeScreen = () => {
   };
   return (
     <SafeAreaView style={{margin:12}}>
-      <Text style={{ color: colors.text }}>HomeScreen</Text>
+      <AppTitle />
       <FlatList data={collections} renderItem={renderItem} />
     </SafeAreaView>
   );
