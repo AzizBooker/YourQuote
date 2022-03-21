@@ -4,7 +4,7 @@ import BottomSheet from '@gorhom/bottom-sheet';
 
 const BottomSheetComponent = () => {
   // ref
-  const bottomSheetRef = useRef<BottomSheet>(null);
+  const bottomSheetRef = useRef(null);
 
   // variables
   const snapPoints = useMemo(() => ['25%', '50%'], []);

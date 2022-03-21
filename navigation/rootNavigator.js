@@ -25,24 +25,38 @@ return (
       
       >
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Quote" component={QuoteScreen} />
-        <Tab.Screen name="AddNew" component={DummyScreen} 
+        <Tab.Screen name="Quotes" component={QuoteScreen} />
+        <Tab.Screen name="AddNew" component={SettingsScreen} 
         listeners={{
+          
           tabPress:e=>{
             e.preventDefault()
             console.warn('Press')
     
           }
-        }}
-        options={{
-          showLabel:false
+          
         }}
         />
-        
-        <Tab.Screen name="RandomQuote" component={RandomQuoteScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   )
 }
 
 export default RootNavigator
+
+/*
+
+        
+        <Tab.Screen name="RandomQuote" component={SettingsScreen} />
+
+listeners={{
+          
+          tabPress:e=>{
+            e.preventDefault()
+            console.warn('Press')
+    
+          }
+          
+        }}
+
+      */

@@ -1,8 +1,10 @@
   import { configureStore } from '@reduxjs/toolkit' ; 
     import rootSlice from './rootSlice'; 
+    import settingsSlice from './settingsSlice';
     const store=configureStore({         
     reducer:{                            
-      root:rootSlice                   
+      root:rootSlice,
+      settings:settingsSlice                   
     }                                    
     })                                  
  

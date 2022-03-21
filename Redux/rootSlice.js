@@ -7,7 +7,7 @@ const initialState = {
       uuid: "1010",
       quotes: [
         {
-          uuid:'1111',
+          uuid:'11141',
           quote: "I will live a life of intention",
           author: "Aziz Booker",
         },
@@ -15,32 +15,32 @@ const initialState = {
     },
   {
       name:'philosophy',
-      uuid: "1010",
+      uuid: "1011",
       quotes: [
         {
-          uuid:'1111',
+          uuid:'114111',
           quote: "Philosophy Quote",
           author: "Random Philosopher",
         },
         {
-          uuid:'1112',
+          uuid:'111412',
           quote: "Philosophy Quote #2",
           author: "Random Philosopher #2",
         },
         {
-          uuid:'1113',
+          uuid:'11131',
           quote:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus hendrerit posuere dolor, ut posuere magna rhoncus eget"
           ,
           author: "Random Philosopher #2",
         },
         {
-          uuid:'1114',
+          uuid:'11144',
           quote:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus hendrerit posuere dolor, ut posuere magna rhoncus eget"
           ,
           author: "Random Philosopher #3",
         },
         {
-          uuid:'1115',
+          uuid:'1314',
           quote:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus hendrerit posuere dolor, ut posuere magna rhoncus eget"
           ,
           author: "Random Philosopher #4",

@@ -1,4 +1,4 @@
-import { View, Text,SafeAreaView,FlatList } from 'react-native'
+import { View, Text,SafeAreaView,FlatList,TouchableOpacity,TouchableHighlight } from 'react-native'
 import React from 'react'
 import { useTheme } from '@react-navigation/native'
 import { useSelector } from 'react-redux'
@@ -25,6 +25,7 @@ const renderItem=({item})=>{
 
   console.log(collectionName)
   return(
+    <TouchableOpacity onPress={()=>{console.warn(`Pressed on Quote by:${author}`)}}>
     <View style={{marginBottom:12}}>
       <View style={{marginBottom:6}}>
       <Text style={{color:colors.text,opacity:0.8}}>{collectionName}</Text>
@@ -33,13 +34,15 @@ const renderItem=({item})=>{
       <Text style={{color:colors.text,opacity:0.8,marginTop:8}}>{author}</Text>
       <View style={{borderBottomColor:colors.text,borderBottomWidth:0.6,marginTop:10}}></View>
     </View>
+    </TouchableOpacity>
   )
 }
 
   return (
     <SafeAreaView style={{margin:12}}>
       <AppTitle />
-      <FlatList style={{marginBottom:20}} data={quotes} renderItem={renderItem}/>
+      <FlatList style={{marginBottom:20}} data={quotes} renderItem={renderItem} 
+      keyExtractor={item=>item.uuid}/>
     </SafeAreaView>
   )
 }
