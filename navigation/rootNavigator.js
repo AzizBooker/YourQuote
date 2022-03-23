@@ -1,62 +1,26 @@
-import { View,TouchableOpacity } from "react-native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "../screens/Home Screen";
-import RandomQuoteScreen from "../screens/RandomQuote Screen";
-import QuoteScreen from "../screens/Quote Screen/index.";
-import SettingsScreen from "../screens/Settings Screen";
-import AddNewItemButton from "../components/AddNewItemButton";
-
-
-
+import { View, Text,Button,TouchableOpacity } from 'react-native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import TabNavigator from './TabNavigator'
+import BottomSheetComponent from '../components/BottomSheet'
+import NewQuoteScreen from '../screens/NewQuote Screen'
+import NewCollectionScreen from '../screens/NewCollection Screen'
 const RootNavigator = () => {
-    
-    
-const Tab=createBottomTabNavigator()
 
-const DummyScreen=()=>{
-  return null
-}
+const Stack=createNativeStackNavigator()
 
-
-return (
-    <Tab.Navigator screenOptions={{
-      headerShown:false,
-      }}
-      
-      >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Quotes" component={QuoteScreen} />
-        <Tab.Screen name="AddNew" component={SettingsScreen} 
-        listeners={{
-          
-          tabPress:e=>{
-            e.preventDefault()
-            console.warn('Press')
-    
-          }
-          
+  return (
+    <Stack.Navigator
+        screenOptions={{
+            headerShown:false
         }}
-        />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
-    </Tab.Navigator>
+    >
+        <Stack.Screen name ="Tab" component={TabNavigator}/>
+        <Stack.Screen options={{presentation:"transparentModal"}} name="Choice" component={BottomSheetComponent}/>
+        <Stack.Screen name="NewQuote" component={NewQuoteScreen} />
+        <Stack.Screen name ="NewCollection" component={NewCollectionScreen} />
+ 
+    </Stack.Navigator>
   )
 }
 
 export default RootNavigator
-
-/*
-
-        
-        <Tab.Screen name="RandomQuote" component={SettingsScreen} />
-
-listeners={{
-          
-          tabPress:e=>{
-            e.preventDefault()
-            console.warn('Press')
-    
-          }
-          
-        }}
-
-      */

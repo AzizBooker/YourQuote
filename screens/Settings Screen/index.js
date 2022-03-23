@@ -8,12 +8,13 @@ import { changeIsDarkMode } from "../../Redux/settingsSlice";
 const SettingsScreen = () => {
   const { colors } = useTheme();
   const dispatch=useDispatch()
+  const isDarkMode=useSelector(state=>state.settings.isDarkMode)
   return (
   
     <SafeAreaView style={{ margin: 12 }}>
       <AppTitle />
       <View>
-        <CustomSwitch switchLabel='useDarkMode' onChange={(enabled)=>{dispatch(changeIsDarkMode(enabled))}}/>
+        <CustomSwitch switchLabel='useDarkMode' defaultValue={isDarkMode} onChange={(enabled)=>{dispatch(changeIsDarkMode(enabled))}}/>
       </View>
     </SafeAreaView>
   );

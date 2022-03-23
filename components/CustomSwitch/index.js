@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import { useTheme } from '@react-navigation/native';
 
 //TODO 3 Implement Switch
-const CustomSwitch = ({switchLabel,onChange}) => {
-  const [enabled,setEnabled]=useState(false)
+const CustomSwitch = ({switchLabel,onChange,defaultValue}) => {
+  const [enabled,setEnabled]=useState(defaultValue)
   const {colors}=useTheme()
 
   const textPrimaryColor=colors.primary;
