@@ -27,7 +27,7 @@ const NewQuoteScreen = ({navigation}) => {
     }
       )
   })
-  console.log(collectionsList)
+
 
   const onSubmit=()=>{
     dispatch(AddQuote({quote,author,description,uuid:uuidv4(),collection:dropdownValue}))

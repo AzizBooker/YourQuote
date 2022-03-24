@@ -6,11 +6,7 @@ const initialState = {
       name:'personal',
       uuid: "1010",
       quotes: [
-        {
-          uuid:'11141',
-          quote: "I will live a life of intention",
-          author: "Aziz Booker",
-        },
+        
       ],
     },
     {
@@ -42,7 +38,18 @@ export const rootSlice = createSlice({
   initialState,
   reducers: {
     AddQuote: (state, { payload }) => {
-      console.log(payload)
+      
+     state.collections[0].name 
+     
+    state.collections.forEach((value,index)=>{
+      console.log(`v:${value.name} i:${index} `)
+      if(value.name==payload.collection){
+        console.log(state.collections[index].quotes)
+        state.collections[index].quotes.push({uuid:payload.uuid,author:payload.author,quote:payload.quote,description:payload.description})
+        console.log(state.collections[index].quotes)
+      }
+    })
+
       //When adding Quote trim string of whitespace
     },
     EditQuote: (state, { payload }) => {},
