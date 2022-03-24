@@ -1,12 +1,16 @@
-import { View, Text,Button } from 'react-native'
+import { View, Text,Button,TouchableWithoutFeedback } from 'react-native'
 import React from 'react'
-
+import CustomButton from '../CustomButton'
 const BottomSheetComponent = ({navigation}) => {
-  console.log(navigation)
+
   return (
     <View style={{flex:1,justifyContent:'flex-end'}}>
-            <Button title="Quote" onPress={()=>navigation.navigate('NewQuote')} />
-            <Button title="Collection"/>
+      <TouchableWithoutFeedback style={{height:20,backgroundColor:"#fff"}}>
+        <View>
+            <CustomButton  label="Quote" onPress={()=>navigation.navigate('NewQuote')} />
+            <CustomButton label="Collection" onPress={()=>navigation.navigate('NewCollection')}/>
+          </View>
+        </TouchableWithoutFeedback>
         </View>
   )
 }
