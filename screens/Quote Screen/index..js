@@ -17,16 +17,18 @@ const QuoteScreen = ({navigation}) => {
 
 
 const renderItem=({item})=>{
+  console.log(item)
   const quote=item.quote
   const author=item.author
   const uuid=item.uuid
   const collectionName=item.name.toLowerCase()
+  const description=item.description
 
  // console.log(collectionName)
   return(
     <TouchableOpacity onPress={()=>{
       console.warn(`Pressed on Quote by:${author}`)
-      navigation.navigate('DisplayQuote' ,{uuid,quote,author,collectionName})
+      navigation.navigate('DisplayQuote' ,{uuid,quote,author,collectionName,description})
       }}>
     <View style={{marginBottom:12}}>
       <View style={{marginBottom:6}}>

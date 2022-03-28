@@ -3,31 +3,20 @@ const initialState = {
   collections: [
     
     {
-      name:'personal',
+      name:'Default',
       uuid: "1010",
-      quotes: [
-        
-      ],
-    },
-    {
-      name:'space',
-      uuid: "1010",
-      quotes: [
-       
-      ],
-    },
-  {
-      name:'philosophy',
-      uuid: "1011",
       quotes: [
         {
-          uuid:'114111',
-          quote: "Philosophy Quote",
-          author: "Random Philosopher",
-        },
+          uuid:"1234",
+          author:"random philisopher",
+          quote:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem",
+          favorite:false
+        }
         
       ],
     },
+    
   ],
 };
 
@@ -70,3 +59,4 @@ export const {
   RemoveCollection,
 } = rootSlice.actions;
 export default rootSlice.reducer;
+

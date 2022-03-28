@@ -49,7 +49,7 @@ const NewQuoteScreen = ({navigation}) => {
         
       </View>
       <View style={{ flexDirection:'row',justifyContent:'space-between'}}>
-        <CustomButton  isSecondary label="Cancel" onPress={()=>{console.warn('Cancel Pressed')}}/>
+        <CustomButton  isSecondary label="Cancel" onPress={()=>{navigation.goBack()}}/>
         <CustomButton  label="Create" onPress={onSubmit} />
       </View>
     </View>
