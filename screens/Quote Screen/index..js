@@ -16,8 +16,8 @@ const QuoteScreen = ({navigation}) => {
   })
 
 
-const renderItem=({item})=>{
-  console.log(item)
+const renderItem=({item,index})=>{
+ 
   const quote=item.quote
   const author=item.author
   const uuid=item.uuid
@@ -28,7 +28,7 @@ const renderItem=({item})=>{
   return(
     <TouchableOpacity onPress={()=>{
       console.warn(`Pressed on Quote by:${author}`)
-      navigation.navigate('DisplayQuote' ,{uuid,quote,author,collectionName,description})
+      navigation.navigate('DisplayQuote' ,{uuid,quote,author,collectionName,description,allQuotes:quotes,currentIndex:index})
       }}>
     <View style={{marginBottom:12}}>
       <View style={{marginBottom:6}}>

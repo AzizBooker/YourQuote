@@ -12,6 +12,20 @@ const initialState = {
           quote:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem",
           favorite:false
+        },
+        {
+          uuid:"1244",
+          author:"random science guy #1 ",
+          quote:"Lorem ipsum dolor sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.",
+          description:"Lorem ipsum ",
+          favorite:false
+        },
+        {
+          uuid:"1236",
+          author:"random philisopher #2",
+          quote:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          description:"sit ametr",
+          favorite:false
         }
         
       ],
@@ -44,7 +58,7 @@ export const rootSlice = createSlice({
     EditQuote: (state, { payload }) => {},
     DeleteQuote: (state, { payload }) => {},
     AddCollection: (state, { payload }) => {
-      console.log(payload)
+      state.collections.push({name:payload.name,uuid:payload.uuid,quotes:[]})
     },
     EditCollection: (state, { payload }) => {},
     DeleteCollection: (state, { payload }) => {},

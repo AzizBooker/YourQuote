@@ -7,9 +7,9 @@ import AppTitle from "../../components/AppTitle";
 
 const DisplayQuoteScreen = ({ route, navigation }) => {
   const [visible, setVisible] = useState(false);
-  const { author, quote, description, collection } = route.params;
+  const { author, description,quote, collection,allQuotes,currentIndex } = route.params;
   const { colors } = useTheme();
-
+  console.log(route.params.currentIndex)
   return (
     <View style={{ flex: 1, margin: 12, marginHorizontal: 20 }}>
       <View style={{ alignItems: "flex-end", marginTop: 12 }}>
@@ -35,20 +35,39 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
           </View>
         </Modal>
       </View>
-      <ScrollView style={{ marginTop: "20%" }}>
+      <ScrollView contentContainerStyle={{flex:1,justifyContent:'space-around'}} style={{ marginTop: "20%", }}>
+        <View>
         <Text style={{ color: colors.text, fontSize: 30, textAlign: "left" }}>
           {quote}
         </Text>
+        </View>
+        <View>
         <Text
           style={{
             color: colors.card,
             fontSize: 18,
             textAlign: "right",
-            marginTop: 14,
+            marginTop: 0,
           }}
         >
-          {author}
+          - {author}
         </Text>
+        <Button title="Previous" onPress={()=>{
+         const incrementIndex=currentIndex-1
+         const quote=allQuotes[incrementIndex]
+
+         
+         navigation.navigate('DisplayQuote',{...quote,currentIndex:incrementIndex,allQuotes})
+        }} />
+        <Button title="Next" onPress={()=>{
+          const incrementIndex=currentIndex+1
+          const quote=allQuotes[incrementIndex]
+
+          
+          navigation.navigate('DisplayQuote',{...quote,currentIndex:incrementIndex,allQuotes})
+          
+          }} />
+        </View>
       </ScrollView>
     </View>
   );
