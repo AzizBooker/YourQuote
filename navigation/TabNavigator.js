@@ -6,8 +6,8 @@ import QuoteScreen from "../screens/Quote Screen/index.";
 import SettingsScreen from "../screens/Settings Screen";
 import AddNewItemButton from "../components/AddNewItemButton";
 import AddNewNavigator from "./AddNewNavigator";
-
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useSelector } from "react-redux";
 const TabNavigator = () => {
     
     
@@ -24,12 +24,28 @@ const CreatNewPlaceholder=()=>{
   )
 }
 
-
 return (
-    <Tab.Navigator screenOptions={{
+    <Tab.Navigator screenOptions={({route})=>({
       headerShown:false,
-      }}
+      tabBarIcon:({focused,color,size})=>{
+        let iconName;
+
+        if(route.name==="Home"){
+          iconName=focused ?'home' : 'home-outline'
+        }
+        else if(route.name==="Settings"){
+          iconName= focused? 'settings' :'settings-outline'
+        } 
+        else if(route.name==="Create"){
+          iconName='add-outline'
+        }
+
+        
+
+        return <Ionicons name={iconName} size={20} color={color} />;
+      }
       
+    })}
       >
         <Tab.Screen name="Home"  component={HomeScreen} />
         <Tab.Screen name="Quotes" component={QuoteScreen} />
@@ -46,6 +62,21 @@ return (
           
         })}
         />
+        <Tab.Screen name="RandomQuote" component={SettingsScreen}
+        
+        listeners={({navigation}) => ({
+          
+          tabPress:e=>{
+          e.preventDefault()
+            
+         
+          navigation.navigate('DisplayQuote',{random:true})
+    
+          }
+          
+        })}
+        />
+      
         <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   )
@@ -56,7 +87,7 @@ export default TabNavigator
 /*
 
         
-        <Tab.Screen name="RandomQuote" component={SettingsScreen} />
+  
 
 listeners={{
           
