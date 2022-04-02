@@ -26,7 +26,8 @@ const HomeScreen = ({navigation}) => {
   const { colors } = useTheme();
 
   const renderItem = ({ item }) => {
-
+    var quotes=item.quotes
+   
     var uuid=item.uuid
     var collectionName = item.name;
     collectionName =
@@ -38,6 +39,7 @@ const HomeScreen = ({navigation}) => {
         quoteCount={quoteCount}
         uuid={uuid}
         navigation={navigation}
+        allQuotes={quotes}
       />
     );
   };

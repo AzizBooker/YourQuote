@@ -1,5 +1,5 @@
 import { View, Text, TouchableWithoutFeedback,Alert } from "react-native";
-import React from "react";
+import React ,{useEffect, useState} from "react";
 import { useTheme } from "@react-navigation/native";
 import {
   Menu,
@@ -11,10 +11,19 @@ import {useSelector,useDispatch } from 'react-redux'
 import { DeleteCollection } from "../../Redux/rootSlice";
 import styles from "./styles";
 
-const CollectionListItem = ({navigation, collectionName, quoteCount,uuid }) => {
+const CollectionListItem = ({navigation, collectionName, quoteCount,uuid,allQuotes }) => {
   
   const { colors } = useTheme();
+  const [quotes,setQuotes]=useState([])
   const dispatch=useDispatch()
+  
+
+  useEffect(() => {
+   setQuotes(allQuotes.map(quote=> quote={...quote,name:collectionName}))
+   
+    
+  }, [])
+  
   const showAlert=()=>{
 
   
@@ -41,11 +50,14 @@ const CollectionListItem = ({navigation, collectionName, quoteCount,uuid }) => {
     }
   );
 }
+
+const onView=()=>{
+
+  navigation.navigate('Quotes',{quotes})
+}
   return (
     <TouchableWithoutFeedback
-      onPress={() => {
-        console.log("Hello");
-      }}
+      onPress={onView}
     >
       <View
         style={{
@@ -65,7 +77,7 @@ const CollectionListItem = ({navigation, collectionName, quoteCount,uuid }) => {
         <Menu>
           <MenuTrigger text="Select action" />
           <MenuOptions>
-            <MenuOption onSelect={() => alert(`View`)} ><Text style={styles.textMenu} >View</Text></MenuOption>
+            <MenuOption onSelect={onView} ><Text style={styles.textMenu} >View</Text></MenuOption>
             <MenuOption onSelect={() => {navigation.navigate('NewCollection',{editing:true,collectionName,uuid})}} ><Text style={styles.textMenu}>Edit</Text></MenuOption>
             <MenuOption onSelect={showAlert}  ><Text style={styles.textMenu}>Delete</Text></MenuOption>
             

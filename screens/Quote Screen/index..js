@@ -3,9 +3,10 @@ import React from 'react'
 import { useTheme } from '@react-navigation/native'
 import { useSelector } from 'react-redux'
 import AppTitle from '../../components/AppTitle'
-const QuoteScreen = ({navigation}) => {
+const QuoteScreen = ({navigation,route}) => {
   const {colors}=useTheme()
-
+  const quotes=route.params.quotes
+/*
   const collections=useSelector(state=>state.root.collections)
   var quotes=[]
   collections.forEach((collection,index)=>{
@@ -14,6 +15,7 @@ const QuoteScreen = ({navigation}) => {
         quotes.push({name:collectionName,...quote})
     })
   })
+  */
 
 
 const renderItem=({item,index})=>{
