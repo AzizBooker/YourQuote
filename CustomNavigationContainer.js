@@ -5,7 +5,7 @@ import RootNavigator from './navigation/rootNavigator'
 import LightTheme from './Util/LightTheme'
 import DarkTheme from './Util/DarkTheme';
 import { useSelector } from 'react-redux'
-
+import 'react-native-gesture-handler';
 const CustomNavigationContainer = () => {
   const isDarkMode= useSelector(state=>state.settings.isDarkMode)
   

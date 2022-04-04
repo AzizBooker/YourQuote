@@ -12,7 +12,7 @@ import { BlurView } from "@react-native-community/blur";
 import { useSelector } from "react-redux";
 import AppTitle from "../../components/AppTitle";
 import Ionicons from "react-native-vector-icons/Ionicons";
-// TODO 1 Prevent Going back and Forward when no quotes
+
 import style from "./styles";
 import styles from "./styles";
 const DisplayQuoteScreen = ({ route, navigation }) => {
@@ -66,14 +66,7 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
             <Text style={{ color: colors.text, ...styles.infoPrimaryText }}>
               {description}
             </Text>
-            <View>
-              <Text style={{ color: colors.text, ...styles.infoSecondaryText }}>
-                collection:{collectionName}
-              </Text>
-              <Text style={{ color: colors.text, ...styles.infoSecondaryText }}>
-                author:{author}
-              </Text>
-            </View>
+            
           </View>
         </Modal>
       </View>
@@ -82,7 +75,7 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
         style={{ marginTop: "20%" }}
       >
         <View>
-          <Text style={{ color: colors.text, fontSize: 30, textAlign: "left" }}>
+          <Text style={{ color: colors.text, fontSize: 30, textAlign: "left",fontFamily:'Inter_400Regular' }}>
             {quote}
           </Text>
         </View>

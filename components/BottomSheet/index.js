@@ -7,8 +7,8 @@ const BottomSheetComponent = ({navigation}) => {
     <View style={{flex:1,justifyContent:'flex-end'}}>
       <TouchableWithoutFeedback style={{height:20,backgroundColor:"#fff"}}>
         <View>
-            <CustomButton  label="Quote" onPress={()=>navigation.navigate('NewQuote')} />
-            <CustomButton label="Collection" onPress={()=>navigation.navigate('NewCollection')}/>
+            <CustomButton  label="Quote" onPress={()=>navigation.navigate('NewQuote',{editing:false})} />
+            <CustomButton label="Collection" onPress={()=>navigation.navigate('NewCollection',{editing:false})}/>
           </View>
         </TouchableWithoutFeedback>
         </View>

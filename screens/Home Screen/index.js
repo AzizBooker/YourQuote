@@ -6,7 +6,7 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React ,{useEffect} from "react";
 import { useTheme } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import AppTitle from "../../components/AppTitle";
@@ -20,14 +20,20 @@ import {
   NotoSerifKR_700Bold,
   NotoSerifKR_900Black,
 } from "@expo-google-fonts/noto-serif-kr";
+//TODO 5 All Quotes Menu
 const HomeScreen = ({navigation}) => {
-  const collections = useSelector((state) => state.root.collections);
+
+ 
+  
+  collections = useSelector((state) => state.root.collections);
 
   const { colors } = useTheme();
 
+  
+  
+
   const renderItem = ({ item }) => {
     var quotes=item.quotes
-   
     var uuid=item.uuid
     var collectionName = item.name;
     collectionName =

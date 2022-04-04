@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import CustomButton from '../../components/CustomButton'
 import { AddCollection,EditCollection } from '../../Redux/rootSlice'
 import { v4 as uuidv4 } from 'uuid';
-// TODO 2 Add New Collection on Form Press
+
 const NewCollectionScreen = ({navigation,route}) => {
   const {colors} =useTheme()
   const [name, setName] = useState('')

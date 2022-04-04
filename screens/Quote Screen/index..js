@@ -3,6 +3,9 @@ import React from 'react'
 import { useTheme } from '@react-navigation/native'
 import { useSelector } from 'react-redux'
 import AppTitle from '../../components/AppTitle'
+import QuoteListItem from '../../components/QuoteListItem'
+
+//FIXME New Quotes not showing on QuotesScreen
 const QuoteScreen = ({navigation,route}) => {
   const {colors}=useTheme()
   const quotes=route.params.quotes
@@ -19,29 +22,12 @@ const QuoteScreen = ({navigation,route}) => {
 
 
 const renderItem=({item,index})=>{
+  
  
-  const quote=item.quote
-  const author=item.author
-  const uuid=item.uuid
-  const collectionName=item.name.toLowerCase()
-  const description=item.description
+  return <QuoteListItem item={item} index={index} navigation={navigation} quotes={quotes} />
 
- // console.log(collectionName)
-  return(
-    <TouchableOpacity onPress={()=>{
-      console.warn(`Pressed on Quote by:${author}`)
-      navigation.navigate('DisplayQuote' ,{uuid,quote,author,collectionName,description,allQuotes:quotes,currentIndex:index})
-      }}>
-    <View style={{marginBottom:12}}>
-      <View style={{marginBottom:6}}>
-      <Text style={{color:colors.text,opacity:0.8}}>{collectionName}</Text>
-      </View>
-      <Text style={{fontSize:18,color:colors.text}}>{quote}</Text>
-      <Text style={{color:colors.text,opacity:0.8,marginTop:8}}>{author}</Text>
-      <View style={{borderBottomColor:colors.text,borderBottomWidth:0.6,marginTop:10}}></View>
-    </View>
-    </TouchableOpacity>
-  )
+
+ 
 }
 
   return (

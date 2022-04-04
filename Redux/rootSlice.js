@@ -10,43 +10,6 @@ const initialState = {
       ]
       },
     {
-      name:'Test',
-      uuid: "1010",
-      quotes: [
-        {
-          uuid:"121241234",
-          author:"random philisopher",
-          quote:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem",
-          favorite:false,
-          dateCreated:'04/22/2022',
-          dateLastEdited:'04/25/2022',
-          tags:[]
-        },
-        {
-          uuid:"1241424",
-          author:"random science guy #1 ",
-          quote:"Lorem ipsum dolor sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.",
-          description:"Lorem ipsum ",
-          favorite:false,
-          dateCreated:'04/22/2022',
-          dateLastEdited:'04/25/2022',
-          tags:[]
-        },
-        {
-          uuid:"12312416",
-          author:"random philisopher #2",
-          quote:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          description:"sit ametr",
-          favorite:false,
-          dateCreated:'04/22/2022',
-          dateLastEdited:'04/25/2022',
-          tags:[]
-        }
-        
-      ],
-    },
-    {
       name:'Test #2',
       uuid:'12341',
       quotes:[

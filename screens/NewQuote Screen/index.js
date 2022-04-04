@@ -1,5 +1,5 @@
 import { View, Text,TextInput,ScrollView } from 'react-native'
-import React ,{useState} from 'react'
+import React ,{useState,useEffect} from 'react'
 import {useSelector,useDispatch } from 'react-redux'
 import { useTheme } from '@react-navigation/native'
 import styles from './styles'
@@ -7,16 +7,33 @@ import CustomButton from '../../components/CustomButton'
 import { AddQuote } from '../../Redux/rootSlice'
 import { v4 as uuidv4 } from 'uuid';
 import Dropdown from '../../components/Dropdown'
-//TODO 1 Add New Quote on Form Entry
-const NewQuoteScreen = ({navigation}) => {
+
+const NewQuoteScreen = ({navigation,route}) => {
 
   const [quote,setQuote]=useState("")
   const [author,setAuthor]=useState("")
   const [description,setDescription]=useState("")
   const [dropdownValue,setDropdownValue]=useState(null)
+  const [editing,setEditing]=useState(false)
+  useEffect(() => {
+    
+    if(route.params.editing==true){
+      console.log(route.params)
+      setQuote(route.params.quote)
+      setAuthor(route.params.author)
+      setDescription(route.params.description)
+      setDropdownValue(route.params.collectionName)
+      setEditing(false)
+    }
+    
+  }, [])
+  
+  
 
   const dispatch=useDispatch()
   const {colors} =useTheme()
+
+  
   const collections = useSelector((state) => state.root.collections);
   var collectionsList= []
   collectionsList=collections.map((collection)=>{
@@ -40,7 +57,7 @@ const NewQuoteScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={{color:colors.text,...styles.text}}>Describe your Quote</Text>
+        <Text style={{color:colors.text,...styles.text}}>{editing ? 'Edit your Quote' : 'Describe Your Quote'}</Text>
       
         <TextInput style={{color:colors.text,borderColor:colors.text,...styles.input}} placeholderTextColor={colors.card} value={author} onChangeText={setAuthor} placeholder="Author" />
         <TextInput style={{color:colors.text,borderColor:colors.text,...styles.input}} placeholderTextColor={colors.card} selectionColor={colors.primary} numberOfLines={4} value={quote} onChangeText={setQuote} placeholder="Quote" />

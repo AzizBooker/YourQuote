@@ -19,7 +19,9 @@ const CollectionListItem = ({navigation, collectionName, quoteCount,uuid,allQuot
   
 
   useEffect(() => {
+  
    setQuotes(allQuotes.map(quote=> quote={...quote,name:collectionName}))
+   
    
     
   }, [])
@@ -52,20 +54,15 @@ const CollectionListItem = ({navigation, collectionName, quoteCount,uuid,allQuot
 }
 
 const onView=()=>{
-
-  navigation.navigate('Quotes',{quotes})
+  quotesArray=[...quotes]
+  
+  navigation.navigate('Quotes',{quotes:quotesArray})
 }
   return (
     <TouchableWithoutFeedback
       onPress={onView}
     >
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+      <View style={{...styles.container,borderBottomColor:colors.text}}>
         <View>
           <Text style={{ color: colors.text, ...styles.textHeader }}>
             {collectionName}

@@ -48,7 +48,6 @@ return (
     })}
       >
         <Tab.Screen name="Home"  component={HomeScreen} />
-        <Tab.Screen name="Quotes" component={QuoteScreen} />
         <Tab.Screen name="Create" component={AddNewNavigator} 
         listeners={({navigation}) => ({
           
@@ -57,20 +56,6 @@ return (
             
          
           navigation.navigate('Choice')
-    
-          }
-          
-        })}
-        />
-        <Tab.Screen name="RandomQuote" component={SettingsScreen}
-        
-        listeners={({navigation}) => ({
-          
-          tabPress:e=>{
-          e.preventDefault()
-            
-         
-          navigation.navigate('DisplayQuote',{random:true})
     
           }
           
