@@ -1,7 +1,9 @@
-import { View, Text } from 'react-native'
+import { View, Text,Alert } from 'react-native'
 import React ,{useState} from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useTheme } from '@react-navigation/native'
+import { DeleteQuote } from '../../Redux/rootSlice'
+import { useDispatch } from 'react-redux'
 import {
   Menu,
   MenuOptions,
@@ -9,12 +11,11 @@ import {
   MenuTrigger,
 } from "react-native-popup-menu";
 import styles from './styles'
-//TODO 2C Create Pop Up Menu' 
-// TODO 3 Pop Up Menu on Long Press and Trigger Press
-//TODO 4 Option to View,Edit, or Delete Quote
+
+//TODO 1 Option to View,Edit, or Delete Quote
 const QuoteListItem = ({item,index,navigation,quotes}) => {
   const {colors} =useTheme()
-  
+  const dispatch=useDispatch()
 
   const quote=item.quote
   const author=item.author
@@ -25,8 +26,8 @@ const QuoteListItem = ({item,index,navigation,quotes}) => {
 
   
     Alert.alert(
-      "Delete Collection?",
-      `Do you wish to delete the collection ${collectionName}`,
+      "Delete Quote?",
+      `Do you wish to delete this quote by ${author}`,
       [
         {
           text: "No",
@@ -35,7 +36,7 @@ const QuoteListItem = ({item,index,navigation,quotes}) => {
         },
         {
             text:"Yes",
-            onPress: () => { dispatch(DeleteCollection(uuid)) }
+            onPress: () => { dispatch(DeleteQuote({uuid,collectionName}))}
         }
       ],
       {

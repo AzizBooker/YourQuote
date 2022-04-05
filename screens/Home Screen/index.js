@@ -20,7 +20,7 @@ import {
   NotoSerifKR_700Bold,
   NotoSerifKR_900Black,
 } from "@expo-google-fonts/noto-serif-kr";
-//TODO 5 All Quotes Menu
+//TODO 2 All Quotes Menu
 const HomeScreen = ({navigation}) => {
 
  
@@ -49,14 +49,36 @@ const HomeScreen = ({navigation}) => {
       />
     );
   };
+  const ListHeaderComponent=()=>{
+    let quotes=[]
+    const collections=useSelector(state=>state.root.collections)
+    collections.forEach(collection=>{
+      collection.quotes.forEach(quote=>{
+        quotes.push(quote)
+      })
+    })
+    
+    return(
+    <CollectionListItem
+      collectionName="All Quotes"
+      quoteCount={quotes.length}
+      navigation={navigation}
+      allQuotes={quotes}
+       disabled
+    />
+
+     )
+  }
   return (
     <SafeAreaView style={{ margin: 12 }}>
       <AppTitle />
       <FlatList
+        ListHeaderComponent={ListHeaderComponent}
         data={collections}
         renderItem={renderItem}
         keyExtractor={(item) => item.name}
       />
+      
     </SafeAreaView>
   );
 };

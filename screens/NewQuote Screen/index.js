@@ -4,7 +4,7 @@ import {useSelector,useDispatch } from 'react-redux'
 import { useTheme } from '@react-navigation/native'
 import styles from './styles'
 import CustomButton from '../../components/CustomButton'
-import { AddQuote } from '../../Redux/rootSlice'
+import { AddQuote,EditQuote } from '../../Redux/rootSlice'
 import { v4 as uuidv4 } from 'uuid';
 import Dropdown from '../../components/Dropdown'
 
@@ -15,6 +15,7 @@ const NewQuoteScreen = ({navigation,route}) => {
   const [description,setDescription]=useState("")
   const [dropdownValue,setDropdownValue]=useState(null)
   const [editing,setEditing]=useState(false)
+  const [uuid,setUuid]=useState(uuidv4())
   useEffect(() => {
     
     if(route.params.editing==true){
@@ -24,6 +25,7 @@ const NewQuoteScreen = ({navigation,route}) => {
       setDescription(route.params.description)
       setDropdownValue(route.params.collectionName)
       setEditing(false)
+      setUuid(route.params.uuid)
     }
     
   }, [])
@@ -47,8 +49,8 @@ const NewQuoteScreen = ({navigation,route}) => {
 
 
   const onSubmit=()=>{
-    dispatch(AddQuote({quote,author,description,uuid:uuidv4(),collection:dropdownValue}))
-    navigation.navigate('Tab')
+    editing ?   dispatch(EditQuote({quote,author,description,uuid,collection:dropdownValue})) : dispatch(AddQuote({quote,author,description,uuid:uuidv4(),collection:dropdownValue}))
+    editing ? navigation.navigate('Quotes') : navigation.navigate('Tab')
   }
 
 

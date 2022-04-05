@@ -11,15 +11,19 @@ import {useSelector,useDispatch } from 'react-redux'
 import { DeleteCollection } from "../../Redux/rootSlice";
 import styles from "./styles";
 
-const CollectionListItem = ({navigation, collectionName, quoteCount,uuid,allQuotes }) => {
+const CollectionListItem = ({navigation, collectionName, quoteCount,uuid,allQuotes,disabled }) => {
   
   const { colors } = useTheme();
   const [quotes,setQuotes]=useState([])
+  const [disabledMenu,setDisabledMenu]=useState(false)
   const dispatch=useDispatch()
   
+ 
 
   useEffect(() => {
-  
+    if(disabled!=null){
+      setDisabledMenu(disabled)
+  }
    setQuotes(allQuotes.map(quote=> quote={...quote,name:collectionName}))
    
    
@@ -31,7 +35,7 @@ const CollectionListItem = ({navigation, collectionName, quoteCount,uuid,allQuot
   
   Alert.alert(
     "Delete Collection?",
-    `Do you wish to delete the collection ${collectionName}`,
+    `Do you wish to delete this collection and all its quotes?`,
     [
       {
         text: "No",
@@ -56,7 +60,7 @@ const CollectionListItem = ({navigation, collectionName, quoteCount,uuid,allQuot
 const onView=()=>{
   quotesArray=[...quotes]
   
-  navigation.navigate('Quotes',{quotes:quotesArray})
+  navigation.navigate('Quotes',{name:collectionName})
 }
   return (
     <TouchableWithoutFeedback
@@ -75,8 +79,8 @@ const onView=()=>{
           <MenuTrigger text="Select action" />
           <MenuOptions>
             <MenuOption onSelect={onView} ><Text style={styles.textMenu} >View</Text></MenuOption>
-            <MenuOption onSelect={() => {navigation.navigate('NewCollection',{editing:true,collectionName,uuid})}} ><Text style={styles.textMenu}>Edit</Text></MenuOption>
-            <MenuOption onSelect={showAlert}  ><Text style={styles.textMenu}>Delete</Text></MenuOption>
+            <MenuOption disabled={disabledMenu} onSelect={() => {navigation.navigate('NewCollection',{editing:true,collectionName,uuid})}} ><Text style={(disabledMenu ? styles.disabledTextMenu : styles.textMenu)}>Edit</Text></MenuOption>
+            <MenuOption  disabled ={disabledMenu} onSelect={showAlert}  ><Text style={(disabledMenu ? styles.disabledTextMenu : styles.textMenu)}>Delete</Text></MenuOption>
             
           </MenuOptions>
         </Menu>

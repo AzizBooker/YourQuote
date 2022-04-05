@@ -8,17 +8,20 @@ import QuoteListItem from '../../components/QuoteListItem'
 //FIXME New Quotes not showing on QuotesScreen
 const QuoteScreen = ({navigation,route}) => {
   const {colors}=useTheme()
-  const quotes=route.params.quotes
-/*
+  const name=route.params.name
+
   const collections=useSelector(state=>state.root.collections)
   var quotes=[]
   collections.forEach((collection,index)=>{
     const collectionName=collection.name
+   
+    if(collectionName.toLowerCase()==name.toLowerCase()){
     collection.quotes.forEach((quote)=>{
         quotes.push({name:collectionName,...quote})
     })
+  }
   })
-  */
+  
 
 
 const renderItem=({item,index})=>{

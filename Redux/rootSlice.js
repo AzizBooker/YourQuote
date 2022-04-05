@@ -2,15 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   collections: [
     
+  
     {
-      name:'All',
-      uuid:'1231',
-      quotes:[
-
-      ]
-      },
-    {
-      name:'Test #2',
+      name:'Test #1',
       uuid:'12341',
       quotes:[
         {
@@ -51,8 +45,25 @@ export const rootSlice = createSlice({
 
       //When adding Quote trim string of whitespace
     },
-    EditQuote: (state, { payload }) => {},
-    DeleteQuote: (state, { payload }) => {},
+    EditQuote: (state, { payload }) => {
+      state.collections.forEach((collection,collectionIndex)=>{
+        console.log(collectionIndex)
+        collection.quotes.forEach((quote,quoteIndex)=>{
+            state.collections[collectionIndex].quotes[quoteIndex]={...payload}
+        })
+        
+      })
+    },
+    DeleteQuote: (state, { payload }) => {
+      console.log(payload)
+      state.collections.forEach((collection,index)=>{
+        
+        if(collection.name.toLowerCase()==payload.collectionName.toLowerCase()){
+         const quoteIndex= state.collections[index].quotes.findIndex(quote=>quote.uuid=payload.uuid)
+         state.collections[index].quotes.splice(quoteIndex,1)
+        }
+      })
+    },
     AddCollection: (state, { payload }) => {
       state.collections.push({name:payload.name,uuid:payload.uuid,quotes:[]})
     },
