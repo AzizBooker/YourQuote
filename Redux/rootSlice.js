@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+
+//TODO 1C Implement Favorite Quote
 const initialState = {
   collections: [
     
@@ -10,7 +12,17 @@ const initialState = {
         {
           uuid:"124412412",
           author:"random science guy #2 ",
-          quote:" sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.",
+          quote:" sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.",
+          description:"Lorem ipsum ",
+          favorite:false,
+          dateCreated:'04/22/2022',
+          dateLastEdited:'04/25/2022',
+          tags:[]
+        },
+        {
+          uuid:"12441jnj2",
+          author:"random science guy #2 ",
+          quote:" sit amet, it amet, it amet,",
           description:"Lorem ipsum ",
           favorite:false,
           dateCreated:'04/22/2022',
@@ -47,7 +59,7 @@ export const rootSlice = createSlice({
     },
     EditQuote: (state, { payload }) => {
       state.collections.forEach((collection,collectionIndex)=>{
-        console.log(collectionIndex)
+       
         collection.quotes.forEach((quote,quoteIndex)=>{
             state.collections[collectionIndex].quotes[quoteIndex]={...payload}
         })
@@ -55,7 +67,7 @@ export const rootSlice = createSlice({
       })
     },
     DeleteQuote: (state, { payload }) => {
-      console.log(payload)
+      
       state.collections.forEach((collection,index)=>{
         
         if(collection.name.toLowerCase()==payload.collectionName.toLowerCase()){
@@ -63,6 +75,17 @@ export const rootSlice = createSlice({
          state.collections[index].quotes.splice(quoteIndex,1)
         }
       })
+    },
+
+    ToggleQuoteFavorite: (state, { payload }) => {
+      state.collections.forEach((collection, collectionIndex) => {
+       
+        collection.quotes.forEach((quote,quoteIndex) => {
+          if(quote.uuid==payload.uuid){
+            state.collections[collectionIndex].quotes[quoteIndex].favorite=!state.collections[collectionIndex].quotes[quoteIndex].favorite
+          }
+        });
+      });
     },
     AddCollection: (state, { payload }) => {
       state.collections.push({name:payload.name,uuid:payload.uuid,quotes:[]})
@@ -82,6 +105,7 @@ export const {
   AddQuote,
   EditQuote,
   DeleteQuote,
+  ToggleQuoteFavorite,
   AddCollection,
   EditCollection,
   DeleteCollection,

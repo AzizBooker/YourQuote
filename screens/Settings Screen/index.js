@@ -12,7 +12,7 @@ const SettingsScreen = () => {
   return (
   
     <SafeAreaView style={{ margin: 12 }}>
-      <AppTitle />
+     
       <View>
         <CustomSwitch switchLabel='useDarkMode' defaultValue={isDarkMode} onChange={(enabled)=>{dispatch(changeIsDarkMode(enabled))}}/>
       </View>

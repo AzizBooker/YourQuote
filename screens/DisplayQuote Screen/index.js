@@ -9,14 +9,21 @@ import {
 import React, { useState } from "react";
 import { useTheme } from "@react-navigation/native";
 import { BlurView } from "@react-native-community/blur";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { ToggleQuoteFavorite } from "../../Redux/rootSlice";
 import AppTitle from "../../components/AppTitle";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import style from "./styles";
 import styles from "./styles";
+
+//TODO 2C Add Favorite and information Icons Button
+//TODO 3C Add Icons for Random and Backward buttons
+//TODO 4C Style InfoScreen Buttons
 const DisplayQuoteScreen = ({ route, navigation }) => {
   const [visible, setVisible] = useState(false);
+
+  const dispatch = useDispatch();
 
   const collections = useSelector((state) => state.root.collections);
   var allQuotes = [];
@@ -27,21 +34,38 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
     });
   });
 
-  const { author, description, quote, collectionName, currentIndex } =
+  const { author, description, quote, collectionName, currentIndex, uuid } =
     route.params;
 
   const { colors } = useTheme();
-  console.log(route.params);
+
   return (
-    <View style={{ flex: 1, margin: 12, marginHorizontal: 20 }}>
+    <View style={{flex:1, marginHorizontal: 20 }}>
       <View style={{ alignItems: "flex-end", marginTop: 12 }}>
-        <Button
-          style={{ alignSelf: "right" }}
-          title="Info"
-          onPress={() => {
-            setVisible(true);
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "space-between",
           }}
-        />
+        >
+          <TouchableWithoutFeedback
+            style={{ marginHorizontal: 12 }}
+            onPress={() => {
+              dispatch(ToggleQuoteFavorite({ uuid }));
+            }}
+          >
+            <Ionicons name={"star-outline"} size={20} color={"#fff"} />
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() => {
+              setVisible(true);
+            }}
+          >
+            <Ionicons name={"information-outline"} size={20} color={"#fff"} />
+          </TouchableWithoutFeedback>
+        </View>
+        </View>
         <Modal
           animationType="slide"
           visible={visible}
@@ -50,13 +74,16 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
             setVisible(false);
           }}
         >
-          <Button
-            title="back"
+          <TouchableWithoutFeedback
+            
             style={{ margin: 12 }}
             onPress={() => {
               setVisible(false);
             }}
-          />
+          >
+         <Ionicons name={"arrow-back-outline"} size={30} color={"#fff"} />
+         
+          </TouchableWithoutFeedback>
           <View
             style={{
               backgroundColor: colors.background,
@@ -66,92 +93,93 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
             <Text style={{ color: colors.text, ...styles.infoPrimaryText }}>
               {description}
             </Text>
-            
           </View>
         </Modal>
-      </View>
+      
       <ScrollView
-        contentContainerStyle={{ flex: 1, justifyContent: "space-around" }}
-        style={{ marginTop: "20%" }}
+        contentContainerStyle={{  justifyContent: "space-around" }}
+        style={{ marginTop: "20%", marginBottom: "10%" }}
       >
         <View>
-          <Text style={{ color: colors.text, fontSize: 30, textAlign: "left",fontFamily:'Inter_400Regular' }}>
+          <Text
+            style={{
+              color: colors.text,
+              fontSize: 30,
+              textAlign: "left",
+              fontFamily: "Inter_400Regular",
+            }}
+          >
             {quote}
           </Text>
-        </View>
-        <View>
+
           <Text
             style={{
               color: colors.card,
               fontSize: 18,
               textAlign: "right",
-              marginTop: 0,
+              marginTop: 10,
             }}
           >
             - {author}
           </Text>
-          <View
-            style={{
-              flex: 1,
-              position: "absolute",
-              bottom: 15,
-              flexDirection: "row",
-              justifyContent: "center",
-            }}
-          >
-            <View>
-              <TouchableWithoutFeedback
-                onPress={() => {
-                  const incrementIndex = currentIndex - 1;
-                  const quote = allQuotes[incrementIndex];
-                  console.log(`index:${currentIndex} `);
-                  if (currentIndex + 1 < allQuotes.length) {
-                    navigation.navigate("DisplayQuote", {
-                      ...quote,
-                      currentIndex: incrementIndex,
-                      allQuotes,
-                    });
-                  }
-                }}
-              >
-                <>
-                <Ionicons name={'play-back-sharp'} size={20} color={'#fff'} />
-                </>
-                
-              </TouchableWithoutFeedback>
-            </View>
-
-            <Button
-              title="Random"
-              onPress={() => {
-                const quote =
-                  allQuotes[Math.floor(Math.random() * allQuotes.length)];
-                navigation.navigate("DisplayQuote", {
-                  ...quote,
-                  currentIndex: currentIndex,
-                  allQuotes,
-                });
-              }}
-            />
-            <Button
-              title="Next"
-              onPress={() => {
-                const incrementIndex = currentIndex + 1;
-
-                const quote = allQuotes[incrementIndex];
-
-                if (currentIndex + 1 < allQuotes.length) {
-                  navigation.navigate("DisplayQuote", {
-                    ...quote,
-                    currentIndex: incrementIndex,
-                    allQuotes,
-                  });
-                }
-              }}
-            />
-          </View>
         </View>
       </ScrollView>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-around",
+          alignItems: "center",
+        }}
+      >
+        <TouchableWithoutFeedback
+          onPress={() => {
+            const incrementIndex = currentIndex - 1;
+            const quote = allQuotes[incrementIndex];
+            console.log(`index:${currentIndex} `);
+            if (currentIndex + 1 < allQuotes.length) {
+              navigation.navigate("DisplayQuote", {
+                ...quote,
+                currentIndex: incrementIndex,
+                allQuotes,
+              });
+            }
+          }}
+        >
+          <Ionicons name={"play-back-sharp"} size={40} color={"#fff"} />
+        </TouchableWithoutFeedback>
+
+        <TouchableWithoutFeedback
+          onPress={() => {
+            const quote =
+              allQuotes[Math.floor(Math.random() * allQuotes.length)];
+            navigation.navigate("DisplayQuote", {
+              ...quote,
+              currentIndex: currentIndex,
+              allQuotes,
+            });
+          }}
+        >
+          <Ionicons name={"refresh-outline"} size={60} color={"#fff"} />
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          title="Next"
+          onPress={() => {
+            const incrementIndex = currentIndex + 1;
+
+            const quote = allQuotes[incrementIndex];
+
+            if (currentIndex + 1 < allQuotes.length) {
+              navigation.navigate("DisplayQuote", {
+                ...quote,
+                currentIndex: incrementIndex,
+                allQuotes,
+              });
+            }
+          }}
+        >
+          <Ionicons name={"play-forward-sharp"} size={40} color={"#fff"} />
+        </TouchableWithoutFeedback>
+      </View>
     </View>
   );
 };

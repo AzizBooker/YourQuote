@@ -12,7 +12,7 @@ import {
 } from "react-native-popup-menu";
 import styles from './styles'
 
-//TODO 1 Option to View,Edit, or Delete Quote
+
 const QuoteListItem = ({item,index,navigation,quotes}) => {
   const {colors} =useTheme()
   const dispatch=useDispatch()

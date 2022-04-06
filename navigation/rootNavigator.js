@@ -6,21 +6,21 @@ import NewQuoteScreen from '../screens/NewQuote Screen'
 import NewCollectionScreen from '../screens/NewCollection Screen'
 import DisplayQuoteScreen from '../screens/DisplayQuote Screen'
 import QuoteScreen from '../screens/Quote Screen/index.'
+import { useSelector } from 'react-redux'
 const RootNavigator = () => {
-
+  const isDarkMode=useSelector(state=>state.settings.isDarkMode)
 const Stack=createNativeStackNavigator()
 
   return (
     <Stack.Navigator
         screenOptions={{
-            headerShown:false,
-            presentation:'modal'
+
         }}
     >
-        <Stack.Screen name ="Tab" component={TabNavigator}/>
-        <Stack.Screen options={{presentation:"transparentModal"}} name="Choice" component={BottomSheetComponent}/>
-        <Stack.Screen name="NewQuote" component={NewQuoteScreen} />
-        <Stack.Screen name ="NewCollection" component={NewCollectionScreen} />
+        <Stack.Screen name ="Tab" options={{headerShown:false}} component={TabNavigator}/>
+        <Stack.Screen options={{presentation:"transparentModal",headerShown:false}} name="Choice"  component={BottomSheetComponent}/>
+        <Stack.Screen name="NewQuote" options={{title:'',headerStyle:{backgroundColor:(isDarkMode ? '#333333' :'#FAF9F6')}}} component={NewQuoteScreen} />
+        <Stack.Screen name ="NewCollection"  options={{title:'',headerStyle:{backgroundColor:(isDarkMode ? '#333333' :'#FAF9F6')}}} component={NewCollectionScreen} />
         <Stack.Screen name="DisplayQuote" component={DisplayQuoteScreen}  />
         <Stack.Screen name="Quotes" component={QuoteScreen} />
  

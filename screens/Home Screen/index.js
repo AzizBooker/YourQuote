@@ -20,7 +20,7 @@ import {
   NotoSerifKR_700Bold,
   NotoSerifKR_900Black,
 } from "@expo-google-fonts/noto-serif-kr";
-//TODO 2 All Quotes Menu
+
 const HomeScreen = ({navigation}) => {
 
  
@@ -71,7 +71,7 @@ const HomeScreen = ({navigation}) => {
   }
   return (
     <SafeAreaView style={{ margin: 12 }}>
-      <AppTitle />
+      
       <FlatList
         ListHeaderComponent={ListHeaderComponent}
         data={collections}

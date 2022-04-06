@@ -47,7 +47,7 @@ return (
       
     })}
       >
-        <Tab.Screen name="Home"  component={HomeScreen} />
+        <Tab.Screen name="Home" options={{headerShown:true,headerStyle:{backgroundColor:'#33A1AA'}}} component={HomeScreen} />
         <Tab.Screen name="Create" component={AddNewNavigator} 
         listeners={({navigation}) => ({
           
@@ -62,7 +62,7 @@ return (
         })}
         />
       
-        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen}  options={{headerShown:true,headerStyle:{backgroundColor:'#33A1AA'}}} />
     </Tab.Navigator>
   )
 }

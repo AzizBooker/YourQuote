@@ -1,6 +1,7 @@
 import { View, Text,Button,TouchableWithoutFeedback } from 'react-native'
 import React from 'react'
 import CustomButton from '../CustomButton'
+//TODO 6 Replace BottomSheet With Action sheet
 const BottomSheetComponent = ({navigation}) => {
 
   return (
