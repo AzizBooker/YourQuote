@@ -1,6 +1,6 @@
-import { View, Text,Alert } from 'react-native'
+import { View, Text,Alert,TouchableOpacity } from 'react-native'
 import React ,{useState} from 'react'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+
 import { useTheme } from '@react-navigation/native'
 import { DeleteQuote } from '../../Redux/rootSlice'
 import { useDispatch } from 'react-redux'
@@ -11,8 +11,8 @@ import {
   MenuTrigger,
 } from "react-native-popup-menu";
 import styles from './styles'
-
-
+//TODO 2C FIXME Touchable Opacity not working
+//TODO 3C Text Ellpisely if Exceed Height
 const QuoteListItem = ({item,index,navigation,quotes}) => {
   const {colors} =useTheme()
   const dispatch=useDispatch()
@@ -60,7 +60,7 @@ const QuoteListItem = ({item,index,navigation,quotes}) => {
       <View style={{marginBottom:6}}>
       <Text style={{fontSize:14,color:colors.text,opacity:0.8}}>{collectionName}</Text>
       </View>
-      <Text style={{fontSize:18,color:colors.text,fontFamily:'Inter_500Medium'}}>{quote}</Text>
+      <Text numberOfLines={3} style={{fontSize:18,color:colors.text,fontFamily:'Inter_500Medium',}}>{quote}</Text>
       <Text style={{color:colors.text,opacity:0.8,marginTop:8,fontFamily:'Inter_300Light'}}>{author}</Text>
       
      

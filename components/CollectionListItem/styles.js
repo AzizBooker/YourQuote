@@ -8,6 +8,9 @@ import { StyleSheet } from 'react-native'
     paddingBottom:8,
     borderBottomWidth:1
    },
+   menuContainer:{
+    paddingHorizontal:12
+   },
       textHeader:{
         paddingVertical:0,
         marginVertical:0,

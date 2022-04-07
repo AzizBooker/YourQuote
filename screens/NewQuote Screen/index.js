@@ -10,6 +10,8 @@ import Dropdown from '../../components/Dropdown'
 
 const NewQuoteScreen = ({navigation,route}) => {
 
+console.log(navigation)
+
   const [quote,setQuote]=useState("")
   const [author,setAuthor]=useState("")
   const [description,setDescription]=useState("")

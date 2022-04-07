@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-//TODO 1C Implement Favorite Quote
+
 const initialState = {
   collections: [
     
@@ -12,7 +12,7 @@ const initialState = {
         {
           uuid:"124412412",
           author:"random science guy #2 ",
-          quote:" sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.",
+          quote:"sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.",
           description:"Lorem ipsum ",
           favorite:false,
           dateCreated:'04/22/2022',
@@ -50,7 +50,7 @@ export const rootSlice = createSlice({
       console.log(`v:${value.name} i:${index} `)
       if(value.name==payload.collection){
         console.log(state.collections[index].quotes)
-        state.collections[index].quotes.push({uuid:payload.uuid,author:payload.author,quote:payload.quote,description:payload.description})
+        state.collections[index].quotes.push({uuid:payload.uuid,author:payload.author.trim(),quote:payload.quote.trim(),description:payload.description.trim()})
         console.log(state.collections[index].quotes)
       }
     })

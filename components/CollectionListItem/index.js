@@ -9,8 +9,10 @@ import {
 } from "react-native-popup-menu";
 import {useSelector,useDispatch } from 'react-redux'
 import { DeleteCollection } from "../../Redux/rootSlice";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
 
+//TODO 1 Replace Selection Action with  settings icon
 const CollectionListItem = ({navigation, collectionName, quoteCount,uuid,allQuotes,disabled }) => {
   
   const { colors } = useTheme();
@@ -58,7 +60,7 @@ const CollectionListItem = ({navigation, collectionName, quoteCount,uuid,allQuot
 }
 
 const onView=()=>{
-  quotesArray=[...quotes]
+ 
   
   navigation.navigate('Quotes',{name:collectionName})
 }
@@ -75,8 +77,10 @@ const onView=()=>{
             {quoteCount} quotes
           </Text>
         </View>
-        <Menu>
-          <MenuTrigger text="Select action" />
+        <Menu style={styles.menuContainer}>
+          <MenuTrigger style={styles.menuContainer} >
+          <Ionicons name={"settings-outline"} size={18} color={"#fff"} />
+          </MenuTrigger>
           <MenuOptions>
             <MenuOption onSelect={onView} ><Text style={styles.textMenu} >View</Text></MenuOption>
             <MenuOption disabled={disabledMenu} onSelect={() => {navigation.navigate('NewCollection',{editing:true,collectionName,uuid})}} ><Text style={(disabledMenu ? styles.disabledTextMenu : styles.textMenu)}>Edit</Text></MenuOption>

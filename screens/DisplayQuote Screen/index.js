@@ -12,14 +12,12 @@ import { BlurView } from "@react-native-community/blur";
 import { useSelector, useDispatch } from "react-redux";
 import { ToggleQuoteFavorite } from "../../Redux/rootSlice";
 import AppTitle from "../../components/AppTitle";
+import { Fader } from "react-native-ui-lib";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import style from "./styles";
 import styles from "./styles";
 
-//TODO 2C Add Favorite and information Icons Button
-//TODO 3C Add Icons for Random and Backward buttons
-//TODO 4C Style InfoScreen Buttons
+
 const DisplayQuoteScreen = ({ route, navigation }) => {
   const [visible, setVisible] = useState(false);
 
@@ -124,6 +122,7 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
           </Text>
         </View>
       </ScrollView>
+      <Fader visible={true} size={20} position={Fader.position.BOTTOM} tintColor={'#333'} />
       <View
         style={{
           flexDirection: "row",

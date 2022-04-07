@@ -19,7 +19,6 @@ import { useFonts,  Inter_100Thin,
   Inter_800ExtraBold,
   Inter_900Black  } from '@expo-google-fonts/inter';
 
-  //TODO 5C Add Back Button on all Screens
 export default function App() {
 
   let [fontsLoaded]=useFonts({
