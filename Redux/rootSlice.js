@@ -20,15 +20,20 @@ const initialState = {
           tags:[]
         },
         {
-          uuid:"12441jnj2",
-          author:"random science guy #2 ",
-          quote:" sit amet, it amet, it amet,",
-          description:"Lorem ipsum ",
+          author: "Cool",
+          backgroundColor: "#808080",
+          backgroundImage: null,
+          description: "ajshs",
+           primaryTextColor: "#FFFFFF",
+          quote: "wowo",
+          secondaryTextColor: "#6E6E6E",
+          uuid: "450ab048-e3ff-4e60-930c-287e004324c4",
           favorite:false,
           dateCreated:'04/22/2022',
           dateLastEdited:'04/25/2022',
           tags:[]
-        },
+          }
+        
       ]
       },
     
@@ -50,7 +55,9 @@ export const rootSlice = createSlice({
       console.log(`v:${value.name} i:${index} `)
       if(value.name==payload.collection){
         console.log(state.collections[index].quotes)
-        state.collections[index].quotes.push({uuid:payload.uuid,author:payload.author.trim(),quote:payload.quote.trim(),description:payload.description.trim()})
+        state.collections[index].quotes.push({uuid:payload.uuid,author:payload.author.trim(),quote:payload.quote.trim(),description:payload.description.trim(),
+          backgroundColor:payload.backgroundColor,backgroundImage:payload.backgroundImage,primaryTextColor:payload.primaryTextColor,secondaryTextColor:payload.secondaryTextColor
+        })
         console.log(state.collections[index].quotes)
       }
     })

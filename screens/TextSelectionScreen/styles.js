@@ -7,7 +7,7 @@ import { StyleSheet } from 'react-native'
     },
     containerColor:{
         padding:8,
-        height:250,
+        height:200,
         backgroundColor:'#fff',
     },
     textHeading:{

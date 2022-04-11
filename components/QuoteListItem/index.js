@@ -21,6 +21,11 @@ const QuoteListItem = ({item,index,navigation,quotes}) => {
   const uuid=item.uuid
   const collectionName=item.name.toLowerCase()
   const description=item.description
+  const backgroundColor=item.backgroundColor
+  const backgroundImage=item.backgroundImage
+  const primaryTextColor=item.primaryTextColor
+  const secondaryTextColor=item.secondaryTextColor
+
   const showAlert=()=>{
 
   
@@ -49,7 +54,8 @@ const QuoteListItem = ({item,index,navigation,quotes}) => {
   }
   const onView=()=>{
 
-    navigation.navigate('DisplayQuote' ,{uuid,quote,author,collectionName,description,allQuotes:quotes,currentIndex:index})
+    navigation.navigate('DisplayQuote' ,{uuid,quote,author,collectionName,description,allQuotes:quotes,currentIndex:index,
+      backgroundColor,primaryTextColor,secondaryTextColor})
   }
 
   return(

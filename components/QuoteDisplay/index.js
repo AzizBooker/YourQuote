@@ -5,10 +5,11 @@ import { useTheme } from '@react-navigation/native'
 import { Fader } from "react-native-ui-lib";
 import { ColorPicker } from 'react-native-ui-lib';
 import styles from './styles'
-const QuoteDisplayComponent = ({quote,author,backgroundColor,primaryTextColor,secondaryTextColor,displayMode}) => {
+const QuoteDisplayComponent = ({quote,author,backgroundColor,backgroundImage,primaryTextColor,secondaryTextColor,displayMode}) => {
   const {colors}=useTheme()
-
+  console.log(backgroundColor)
     if(displayMode==null){
+     
   return (
   
     
@@ -19,13 +20,13 @@ const QuoteDisplayComponent = ({quote,author,backgroundColor,primaryTextColor,se
         
         <View>
           <Text
-            style={{...styles.textQuote,color:primaryTextColor,}}
+            style={{...styles.textQuote,color:primaryTextColor}}
           >
             {quote}
           </Text>
 
           <Text
-            style={{...styles.textAuthor,color: colors.card,}}
+            style={{...styles.textAuthor,color:primaryTextColor}}
           >
             - {author}
           </Text>
@@ -42,13 +43,13 @@ const QuoteDisplayComponent = ({quote,author,backgroundColor,primaryTextColor,se
         
         <View>
           <Text
-            style={{...styles.textQuote,color: colors.text,}}
+            style={{...styles.textQuote,color:primaryTextColor}}
           >
             {quote}
           </Text>
 
           <Text
-            style={{...styles.textAuthor,color: colors.card,}}
+           style={{...styles.textAuthor,color:secondaryTextColor}}
           >
             - {author}
           </Text>

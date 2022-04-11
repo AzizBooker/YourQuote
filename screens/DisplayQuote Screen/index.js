@@ -32,13 +32,14 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
     });
   });
 
-  const { author, description, quote, collectionName, currentIndex, uuid } =
+  const { author, description, quote, collectionName, currentIndex, uuid,backgroundColor,primaryTextColor,secondaryTextColor } =
     route.params;
+    console.log(primaryTextColor)
 
   const { colors } = useTheme();
 
   return (
-    <View style={{flex:1, marginHorizontal: 20 }}>
+    <View style={{flex:1, paddingHorizontal: 20,backgroundColor:backgroundColor }}>
       <View style={{ alignItems: "flex-end", marginTop: 12 }}>
         <View
           style={{
@@ -94,8 +95,8 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
           </View>
         </Modal>
       
-          <QuoteDisplayComponent quote={quote} author={author} />
-      <Fader visible={true} size={20} position={Fader.position.BOTTOM} tintColor={'#333'} />
+      <QuoteDisplayComponent quote={quote} author={author} backgroundColor={backgroundColor} primaryTextColor={primaryTextColor} secondaryTextColor={secondaryTextColor}/>
+     
       <View
         style={{
           flexDirection: "row",

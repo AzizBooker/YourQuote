@@ -17,6 +17,7 @@ const QuoteScreen = ({navigation,route}) => {
    
     if(collectionName.toLowerCase()==name.toLowerCase()){
     collection.quotes.forEach((quote)=>{
+      console.log(quote)
         quotes.push({name:collectionName,...quote})
     })
   }
