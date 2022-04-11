@@ -10,7 +10,7 @@ import Dropdown from '../../components/Dropdown'
 
 const NewQuoteScreen = ({navigation,route}) => {
 
-console.log(navigation)
+
 
   const [quote,setQuote]=useState("")
   const [author,setAuthor]=useState("")
@@ -51,8 +51,8 @@ console.log(navigation)
 
 
   const onSubmit=()=>{
-    editing ?   dispatch(EditQuote({quote,author,description,uuid,collection:dropdownValue})) : dispatch(AddQuote({quote,author,description,uuid:uuidv4(),collection:dropdownValue}))
-    editing ? navigation.navigate('Quotes') : navigation.navigate('Tab')
+    editing ?   dispatch(EditQuote({quote,author,description,uuid,collection:dropdownValue})) : navigation.navigate('NewQuote2',{quote,author,description,uuid:uuidv4(),collection:dropdownValue})
+    editing ? navigation.navigate('Quotes') : ""
   }
 
 
@@ -71,7 +71,7 @@ console.log(navigation)
       </View>
       <View style={{ flexDirection:'row',justifyContent:'space-between'}}>
         <CustomButton  isSecondary label="Cancel" onPress={()=>{navigation.goBack()}}/>
-        <CustomButton  label="Create" onPress={onSubmit} />
+        <CustomButton  label={(editing ? "Edit" : "Next")} onPress={onSubmit} />
       </View>
     </View>
   )

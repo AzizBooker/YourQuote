@@ -42,7 +42,7 @@ if(isSecondary==undefined || isSecondary==null){
 }
 
   return (
-    <View style={{margin:4}}>
+    <View style={{flex:1,margin:4}}>
       <TouchableOpacity onPress={onPress} style={{ ...currentStyle }}>
         <View style={{ justifyContent: "center", alignItems: "center" }}>
           <Text style={{ ...currentTextStyle }}>{label}</Text>

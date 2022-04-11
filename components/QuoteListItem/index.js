@@ -11,8 +11,7 @@ import {
   MenuTrigger,
 } from "react-native-popup-menu";
 import styles from './styles'
-//TODO 2C FIXME Touchable Opacity not working
-//TODO 3C Text Ellpisely if Exceed Height
+
 const QuoteListItem = ({item,index,navigation,quotes}) => {
   const {colors} =useTheme()
   const dispatch=useDispatch()

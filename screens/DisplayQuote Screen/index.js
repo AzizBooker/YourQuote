@@ -14,7 +14,7 @@ import { ToggleQuoteFavorite } from "../../Redux/rootSlice";
 import AppTitle from "../../components/AppTitle";
 import { Fader } from "react-native-ui-lib";
 import Ionicons from "react-native-vector-icons/Ionicons";
-
+import QuoteDisplayComponent from "../../components/QuoteDisplay";
 import styles from "./styles";
 
 
@@ -94,34 +94,7 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
           </View>
         </Modal>
       
-      <ScrollView
-        contentContainerStyle={{  justifyContent: "space-around" }}
-        style={{ marginTop: "20%", marginBottom: "10%" }}
-      >
-        <View>
-          <Text
-            style={{
-              color: colors.text,
-              fontSize: 30,
-              textAlign: "left",
-              fontFamily: "Inter_400Regular",
-            }}
-          >
-            {quote}
-          </Text>
-
-          <Text
-            style={{
-              color: colors.card,
-              fontSize: 18,
-              textAlign: "right",
-              marginTop: 10,
-            }}
-          >
-            - {author}
-          </Text>
-        </View>
-      </ScrollView>
+          <QuoteDisplayComponent quote={quote} author={author} />
       <Fader visible={true} size={20} position={Fader.position.BOTTOM} tintColor={'#333'} />
       <View
         style={{

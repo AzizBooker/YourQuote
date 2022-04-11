@@ -12,7 +12,7 @@ import { DeleteCollection } from "../../Redux/rootSlice";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
 
-//TODO 1 Replace Selection Action with  settings icon
+
 const CollectionListItem = ({navigation, collectionName, quoteCount,uuid,allQuotes,disabled }) => {
   
   const { colors } = useTheme();
