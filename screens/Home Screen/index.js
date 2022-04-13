@@ -6,6 +6,7 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity,
 } from "react-native";
+import { AdMobBanner,setTestDeviceIDAsync } from "expo-ads-admob";
 import React ,{useEffect} from "react";
 import { useTheme } from "@react-navigation/native";
 import { useSelector } from "react-redux";
@@ -29,6 +30,11 @@ const HomeScreen = ({navigation}) => {
 
   const { colors } = useTheme();
 
+  useEffect(() => {
+    
+  setTestDeviceIDAsync('EMULATOR')
+   
+  }, )
   
   
 
@@ -70,7 +76,7 @@ const HomeScreen = ({navigation}) => {
      )
   }
   return (
-    <SafeAreaView style={{ margin: 12 }}>
+    <SafeAreaView style={{flex:1, margin: 12 }}>
       
       <FlatList
         ListHeaderComponent={ListHeaderComponent}
@@ -78,6 +84,16 @@ const HomeScreen = ({navigation}) => {
         renderItem={renderItem}
         keyExtractor={(item) => item.name}
       />
+      
+      <AdMobBanner 
+        style={{position:"absolute",bottom:0}}
+        bannerSize="smartBanner"
+        adUnitID="ca-app-pub-3169309057668103/1658128610"
+        servePersonalizedAds={true}
+        onDidFailToReceiveAdWithError={(e) => console.log(e)}
+      />
+      
+
       
     </SafeAreaView>
   );

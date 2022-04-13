@@ -25,9 +25,9 @@ const QuoteListItem = ({item,index,navigation,quotes}) => {
   const backgroundImage=item.backgroundImage
   const primaryTextColor=item.primaryTextColor
   const secondaryTextColor=item.secondaryTextColor
-
+  console.log(quotes)
   const showAlert=()=>{
-
+      
   
     Alert.alert(
       "Delete Quote?",

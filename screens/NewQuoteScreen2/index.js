@@ -108,9 +108,10 @@ const NewQuoteScreen2 = ({ navigation, route }) => {
         </View>
         </View>
         <View style={{marginBottom:8,}}>
-      <Text style={styles.textHeading} >Background Image</Text>
+     
       <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-        <CustomButton label='Image' onPress={pickImage} />
+        
+       
         
         </View>
         </View>

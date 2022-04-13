@@ -14,11 +14,11 @@ const QuoteDisplayComponent = ({quote,author,backgroundColor,backgroundImage,pri
   
     
     <ScrollView
-        contentContainerStyle={{backgroundColor:backgroundColor, justifyContent: "space-around" }}
-        style={{ marginTop: "20%", marginBottom: "10%" }}
+        contentContainerStyle={{flexGrow:1, backgroundColor:backgroundColor, justifyContent: "space-around" }}
+       
       >
         
-        <View>
+        <View style={{marginTop:20,justifyContent:'space-around'}}>
           <Text
             style={{...styles.textQuote,color:primaryTextColor}}
           >
@@ -38,10 +38,10 @@ const QuoteDisplayComponent = ({quote,author,backgroundColor,backgroundImage,pri
   else{
     return(
     <View
-        style={{flex:1,padding:12,backgroundColor:backgroundColor, justifyContent: "space-around" }}
+        style={{flex:1,padding:20,backgroundColor:backgroundColor, justifyContent: "space-around" }}
       >
         
-        <View>
+        <View >
           <Text
             style={{...styles.textQuote,color:primaryTextColor}}
           >

@@ -23,7 +23,7 @@ const Stack=createNativeStackNavigator()
         <Stack.Screen name="NewQuote" options={{title:'',headerStyle:{backgroundColor:(isDarkMode ? '#333333' :'#FAF9F6')}}} component={NewQuoteScreen} />
         <Stack.Screen name="NewQuote2" options={{title:'',headerStyle:{backgroundColor:(isDarkMode ? '#333333' :'#FAF9F6')}}} component={NewQuoteScreen2} />
         <Stack.Screen name ="NewCollection"  options={{title:'',headerStyle:{backgroundColor:(isDarkMode ? '#333333' :'#FAF9F6')}}} component={NewCollectionScreen} />
-        <Stack.Screen name="DisplayQuote" component={DisplayQuoteScreen}  />
+        <Stack.Screen name="DisplayQuote" options={{headerShown:false}} component={DisplayQuoteScreen}  />
         <Stack.Screen name="Quotes" component={QuoteScreen} />
  
     </Stack.Navigator>

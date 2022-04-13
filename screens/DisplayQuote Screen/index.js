@@ -40,11 +40,21 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
 
   return (
     <View style={{flex:1, paddingHorizontal: 20,backgroundColor:backgroundColor }}>
-      <View style={{ alignItems: "flex-end", marginTop: 12 }}>
+      <View style={{marginTop: 12 }}>
+      <View
+          style={{
+            marginBottom:20
+            
+          }}
+        >
+        <TouchableWithoutFeedback   onPress={()=>{navigation.goBack()}}>
+      <Ionicons  name={"arrow-back-outline"} size={40} color={"#fff"} />
+      </TouchableWithoutFeedback>
+      </View>
         <View
           style={{
             flexDirection: "row",
-            justifyContent: "space-between",
+            justifyContent: "flex-end",
             alignItems: "space-between",
           }}
         >
@@ -54,14 +64,14 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
               dispatch(ToggleQuoteFavorite({ uuid }));
             }}
           >
-            <Ionicons name={"star-outline"} size={20} color={"#fff"} />
+            <Ionicons name={"star-outline"} size={30} color={"#fff"} />
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback
             onPress={() => {
               setVisible(true);
             }}
           >
-            <Ionicons name={"information-outline"} size={20} color={"#fff"} />
+            <Ionicons name={"information-outline"} size={30 } color={"#fff"} />
           </TouchableWithoutFeedback>
         </View>
         </View>
@@ -102,6 +112,7 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
           flexDirection: "row",
           justifyContent: "space-around",
           alignItems: "center",
+          marginBottom:30
         }}
       >
         <TouchableWithoutFeedback
