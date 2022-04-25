@@ -25,7 +25,7 @@ const QuoteListItem = ({item,index,navigation,quotes}) => {
   const backgroundImage=item.backgroundImage
   const primaryTextColor=item.primaryTextColor
   const secondaryTextColor=item.secondaryTextColor
-  console.log(quotes)
+ 
   const showAlert=()=>{
       
   
@@ -54,8 +54,7 @@ const QuoteListItem = ({item,index,navigation,quotes}) => {
   }
   const onView=()=>{
 
-    navigation.navigate('DisplayQuote' ,{uuid,quote,author,collectionName,description,allQuotes:quotes,currentIndex:index,
-      backgroundColor,primaryTextColor,secondaryTextColor})
+    navigation.navigate('DisplayQuote' ,{quotes,index})
   }
 
   return(

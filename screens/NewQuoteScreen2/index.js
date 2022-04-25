@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {ScrollView } from "react-native";
 import QuoteDisplayComponent from "../../components/QuoteDisplay";
+import MiniQuoteDisplayComponent from "../../components/MiniQuoteDispaly";
 import styles from "./styles";
 import CustomButton from "../../components/CustomButton";
 import { gestureHandlerRootHOC } from "react-native-gesture-handler";
@@ -50,7 +51,7 @@ const NewQuoteScreen2 = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
     
-      <QuoteDisplayComponent
+      <MiniQuoteDisplayComponent
         quote={quote}
         author={author}
         backgroundColor={backgroundColor}

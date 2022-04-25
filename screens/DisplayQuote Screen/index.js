@@ -4,7 +4,9 @@ import {
   ScrollView,
   Button,
   Modal,
+  FlatList,
   TouchableWithoutFeedback,
+  useWindowDimensions
 } from "react-native";
 import React, { useState } from "react";
 import { useTheme } from "@react-navigation/native";
@@ -13,14 +15,19 @@ import { useSelector, useDispatch } from "react-redux";
 import { ToggleQuoteFavorite } from "../../Redux/rootSlice";
 import AppTitle from "../../components/AppTitle";
 import { Fader } from "react-native-ui-lib";
+import { Carousel } from "react-native-ui-lib";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import QuoteDisplayComponent from "../../components/QuoteDisplay";
 import styles from "./styles";
 
 
+
 const DisplayQuoteScreen = ({ route, navigation }) => {
   const [visible, setVisible] = useState(false);
 
+  
+  const { colors } = useTheme();
+  const window=useWindowDimensions()
   const dispatch = useDispatch();
 
   const collections = useSelector((state) => state.root.collections);
@@ -32,13 +39,20 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
     });
   });
 
-  const { author, description, quote, collectionName, currentIndex, uuid,backgroundColor,primaryTextColor,secondaryTextColor } =
+  const { quotes,index} =
     route.params;
-    console.log(primaryTextColor)
+    console.warn(index)
+   
 
-  const { colors } = useTheme();
-
-  return (
+  const renderItems=({item})=> {
+    const {quote,author,backgroundColor,primaryTextColor,secondaryTextColor,description}=item
+  
+    return( 
+        <View style={{flex:1,width:window.width,height:window.height,backgroundColor,paddingHorizontal:12,paddingVertical:10}}>
+          <QuoteDisplayComponent navigation={navigation} quote={quote} author={author} description={description} backgroundColor={backgroundColor} primaryTextColor={primaryTextColor} secondaryTextColor={secondaryTextColor}/>
+        </View>
+    )
+    /*
     <View style={{flex:1, paddingHorizontal: 20,backgroundColor:backgroundColor }}>
       <View style={{marginTop: 12 }}>
       <View
@@ -165,7 +179,24 @@ const DisplayQuoteScreen = ({ route, navigation }) => {
         </TouchableWithoutFeedback>
       </View>
     </View>
-  );
+    */
+  
+        };
+
+
+  return(
+    <View>
+    <FlatList 
+    horizontal
+    data={quotes}
+    renderItem={renderItems}
+    keyExtractor={item=>item.uuid}
+    snapToAlignment="start"
+    snapToInterval={window.width}
+    initialScrollIndex={index}
+    />
+    </View>
+  )
 };
 
 export default DisplayQuoteScreen;

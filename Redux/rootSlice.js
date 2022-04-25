@@ -10,16 +10,6 @@ const initialState = {
       uuid:'12341',
       quotes:[
         {
-          uuid:"124412412",
-          author:"random science guy #2 ",
-          quote:"sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.sit amet, consectetur ipsum dolor sit amet, consectetur adipiscing elit.",
-          description:"Lorem ipsum ",
-          favorite:false,
-          dateCreated:'04/22/2022',
-          dateLastEdited:'04/25/2022',
-          tags:[]
-        },
-        {
           author: "Cool",
           backgroundColor: "#808080",
           backgroundImage: null,
@@ -32,7 +22,63 @@ const initialState = {
           dateCreated:'04/22/2022',
           dateLastEdited:'04/25/2022',
           tags:[]
-          }
+          },
+          {
+            author: "Cool",
+            backgroundColor: "#8080ff",
+            backgroundImage: null,
+            description: "ajshs",
+             primaryTextColor: "#FFFF00",
+            quote: "wowodsadasdasdsadasdasdasd",
+            secondaryTextColor: "#6E6E6E",
+            uuid: "450ab048-e3ff-4e60-930c-287e0043sada",
+            favorite:false,
+            dateCreated:'04/22/2022',
+            dateLastEdited:'04/25/2022',
+            tags:[]
+            },
+            {
+              author: "Cool",
+              backgroundColor: "#8000ff",
+              backgroundImage: null,
+              description: "ajshs",
+               primaryTextColor: "#FFFFFF",
+              quote: "wowo",
+              secondaryTextColor: "#6E6E6E",
+              uuid: "450ab048-e3ff-4e60-930c-287e00asd24c4",
+              favorite:false,
+              dateCreated:'04/22/2022',
+              dateLastEdited:'04/25/2022',
+              tags:[]
+              },
+              {
+                author: "Cool",
+                backgroundColor: "#8080ff",
+                backgroundImage: null,
+                description: "ajshs",
+                 primaryTextColor: "#FFFF00",
+                quote: "wowodsadasdasdsadasdasdasd Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit posuere dolor, ut posuere magna rhoncus eget. Nulla interdum condimentum ornare. Praesent porta venenatis risus eu congue Lorem ipsum dolor sit amet, consectetur adipiscing elit.lor sit amet, consectetur adipiscing elit. Phasellus hendrerit posuere dolor, ut posuere magna rhoncus eget. Nulla interdum condimentum ornare. Praesent porta venenatis risus eu congue Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                secondaryTextColor: "#6E6E6E",
+                uuid: "450ab048-e3ff-4e60-930c-287e0043sadas",
+                favorite:false,
+                dateCreated:'04/22/2022',
+                dateLastEdited:'04/25/2022',
+                tags:[]
+                },
+                {
+                  author: "Cool",
+                  backgroundColor: "#ff8080",
+                  backgroundImage: null,
+                  description: "ajshs",
+                   primaryTextColor: "#FFFFFF",
+                  quote: "wowo",
+                  secondaryTextColor: "#6E6E6E",
+                  uuid: "450ab048-e3ff-4e60-930c-287e004324d4",
+                  favorite:false,
+                  dateCreated:'04/22/2022',
+                  dateLastEdited:'04/25/2022',
+                  tags:[]
+                  },
         
       ]
       },

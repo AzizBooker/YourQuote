@@ -21,7 +21,7 @@ const NewQuoteScreen = ({navigation,route}) => {
   useEffect(() => {
     
     if(route.params.editing==true){
-      console.log(route.params)
+   
       setQuote(route.params.quote)
       setAuthor(route.params.author)
       setDescription(route.params.description)
